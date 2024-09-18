@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractorSource: {fileID: 1081441430}
-  InteractRange: 80
+  InteractRange: 10
 --- !u!1 &346659788
 GameObject:
   m_ObjectHideFlags: 0
