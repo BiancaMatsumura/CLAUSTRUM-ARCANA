@@ -4,62 +4,72 @@ using UnityEngine;
 
 interface IInteractable
 {
-    public void Interact();
-    public void Deselect();
-    public bool IsSelected();  
+    
+    public string InteractionPrompt { get; }
+
+    public bool Interact(Interactor interactor);
+
+    void Deselect();
+
 }
 
 public class Interactor : MonoBehaviour
 {
-    public Transform InteractorSource;
-    public float InteractRange;
+    [SerializeField] private Transform _interactionPoint;
+    [SerializeField] private float _interactionPointRaious = 0.5f;
+    [SerializeField] private LayerMask _interactableMask;
 
-    private IInteractable currentInteractable;  
+    private readonly Collider[] _colliders = new Collider[3];
+    [SerializeField] private int _numFound;
 
-    void Update()
+    private IInteractable currentInteractable;
+
+    private void Update()
     {
-        if (Input.touchCount > 0)
+        _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRaious, _colliders, _interactableMask);
+
+        if (_numFound > 0)
         {
-            Touch touch = Input.GetTouch(0);
+            var interactable = _colliders[0].GetComponent<IInteractable>();
 
-            if (touch.phase == TouchPhase.Began)
+            if (interactable != null)
             {
-                Ray ray = new Ray(InteractorSource.position, InteractorSource.forward);
-                if (Physics.Raycast(ray, out RaycastHit hitInfo, InteractRange))
-                {
-                   
-                    if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-                    {
-                        
-                        if (currentInteractable != null && currentInteractable != interactObj)
-                        {
-                            currentInteractable.Deselect();
-                        }
+                currentInteractable = interactable; 
 
-                        
-                        interactObj.Interact();
-                        currentInteractable = interactObj;
-                    }
-                    else
-                    {
-                        
-                        if (currentInteractable != null)
-                        {
-                            currentInteractable.Deselect();
-                            currentInteractable = null; 
-                        }
-                    }
-                }
-                else
+                if (Input.touchCount > 0)
                 {
-                    
-                    if (currentInteractable != null)
+                    Touch touch = Input.GetTouch(0);
+
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        currentInteractable.Deselect();
-                        currentInteractable = null;
+                        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                        RaycastHit hit;
+
+                        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _interactableMask))
+                        {
+                            if (hit.collider == _colliders[0])
+                            {
+                                interactable.Interact(this);
+                            }
+                        }
                     }
                 }
             }
         }
+        else
+        {
+            if (currentInteractable != null)
+            {
+                currentInteractable.Deselect();
+                currentInteractable = null;
+            }
+        }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_interactionPoint.position, _interactionPointRaious);
+    }
+
 }

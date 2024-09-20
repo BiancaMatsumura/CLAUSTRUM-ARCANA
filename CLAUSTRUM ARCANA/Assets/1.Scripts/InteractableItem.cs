@@ -7,85 +7,52 @@ using UnityEngine.UI;
 
 public class InteractableItem : MonoBehaviour, IInteractable
 {
-    public GameObject interactableItem;
+    [SerializeField] private string _prompt;
     public GameObject uiElements;
-    public GameObject buttonRotate;
+    public GameObject interatableUi;
 
-    private bool isSelected = false;
-    private bool canRotate = true;
+    private UIManager uiManager;
 
-    private bool isRotating = false;
-    public float rotationSpeed = 200f;
+    [Header("Girar")]
+    public GameObject interactableItem;  
+    public float rotationSpeed = 200f;   
 
-    private float targetRotationAngle = 0f; 
+    private bool isRotating = false;     
+    private float targetRotationAngle = 0f;  
     private float rotationProgress = 0f;
 
-    private static InteractableItem currentSelectedItem;
-
-    public void Interact()
-       {
-        if (!isSelected)
-        {
-            SelectItem();
-        }
-
-       
-    }
-
-    public void Deselect()  
+    public void Awake()
     {
-        if (isSelected)
-        {
-            DeselectItem();
-        }
+        uiManager = FindObjectOfType<UIManager>();
     }
 
-    public bool IsSelected() 
+    public string InteractionPrompt => _prompt;
+
+    public bool Interact(Interactor interactor)
     {
-        return isSelected;
+        
+        uiElements.SetActive(true);
+        interatableUi.SetActive(true);
+        uiManager.SetCurrentItem(this);
+
+        Debug.Log("interagindo com o item");
+        return true;
     }
 
-
-    private void SelectItem()
+    public void Deselect()
     {
-        if (currentSelectedItem != null)
-        {
-            currentSelectedItem.Deselect(); 
-        }
-
-        isSelected = true;
-        currentSelectedItem = this;
-
-        if (uiElements != null && buttonRotate != null)
-        {
-            uiElements.SetActive(true); 
-            buttonRotate.SetActive(true);
-        }
-
-        Debug.Log("Item Selecionado");
+        uiElements.SetActive(false);
+        interatableUi.SetActive(false);
+        uiManager.SetCurrentItem(null);
     }
 
-    private void DeselectItem()
-    {
-        isSelected = false;
-        currentSelectedItem = null;
-
-        if (uiElements != null && buttonRotate != null)
-        {
-            uiElements.SetActive(false);
-            buttonRotate.SetActive(false);
-        }
-
-        Debug.Log("Item Deselecionado");
-    }
 
     public void Rotate()
     {
-     
-        if (canRotate && !isRotating && isSelected)
+        if (!isRotating)  
         {
-            targetRotationAngle += 90f;
-            isRotating = true;
+            targetRotationAngle += 90f;  
+            isRotating = true;          
         }
     }
 
@@ -102,10 +69,8 @@ public class InteractableItem : MonoBehaviour, IInteractable
             
             if (Mathf.Abs(rotationProgress - targetRotationAngle) < 0.1f)
             {
-                
                 interactableItem.transform.rotation = Quaternion.Euler(0f, targetRotationAngle, 0f);
-                isRotating = false; 
-                Debug.Log("Item rotacionado suavemente para " + targetRotationAngle + " graus");
+                isRotating = false;  
             }
         }
     }
