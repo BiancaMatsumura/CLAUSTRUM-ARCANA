@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
 
     private Animator animator;
-
     void Start()
     {
         joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
@@ -24,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
+        
         MovementeMobile();
         Rotation();
     }
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if(direction != Vector3.zero)
         {
             animator.SetBool("walking",true);
+            
         }
         else
         {
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         if(direction != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direction);
+            
         }
 
         transform.Translate(direction * (playerSpeed * Time.deltaTime),Space.World);
