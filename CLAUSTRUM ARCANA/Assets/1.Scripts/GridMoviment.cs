@@ -8,18 +8,17 @@ public class GridMoviment : MonoBehaviour
     public GameObject setas_Zm;
     public GameObject setas_XM;
     public GameObject setas_Xm;
-    public string SetaClicada;
-    public bool movendo;
+    private string SetaClicada;
+    public static bool brendaperto;
     
     void FixedUpdate()
     {
         Vector3 dir = SphereTarget.position - transform.position;
         transform.position += dir * speed * Time.deltaTime;
-        movendo = true;
     }
     void Update()
     {       
-        if(movendo == false)
+        if(!brendaperto)
         return;
 
         if (Input.touchCount > 0)
@@ -39,49 +38,46 @@ public class GridMoviment : MonoBehaviour
                     
                         if (hit.collider != null && hit.collider.CompareTag("ObjetoMovivel"))
                         {
-                            Debug.Log($"{SetaClicada}");
-
-                            setas_XM.SetActive(true);
-                            setas_Xm.SetActive(true);
-                            setas_ZM.SetActive(true);
-                            setas_Zm.SetActive(true);
-
             
-                            string ZM = setas_ZM.name;
-                            string Zm = setas_Zm.name;
-                            string XM = setas_XM.name;
-                            string Xm = setas_Xm.name; 
-
+                            if(Precolisores.MovimentXM == true){
+                                setas_XM.SetActive(true);
+                            }
+                             if(Precolisores.MovimentXm == true){
+                                setas_Xm.SetActive(true);
+                            }
+                             if(Precolisores.MovimentZM == true){
+                                setas_ZM.SetActive(true);
+                            }
+                             if(Precolisores.MovimentZm == true){
+                                setas_Zm.SetActive(true);
+                            }
+                         
                             
-                            
+                           
                             switch(SetaClicada)
                             {
                                 case "Z+":
                                     SphereTarget.position += Vector3.forward/2;
-                                    movendo = false;
-                                    break;
+                                    DesativarSetas();
+                                    return;
                                 case "Z-":
                                     SphereTarget.position += Vector3.back/2;
-                                    movendo = false;
-                                    break;
+                                    DesativarSetas();
+                                    return;
                                 case "X+":
                                     SphereTarget.position += Vector3.right/2;
-                                    movendo = false;
-                                    break;
+                                    DesativarSetas();
+
+                                    return;
                                 case "X-":
                                     SphereTarget.position += Vector3.left/2;
-                                    movendo = false;
-                                    break;
-                            
+                                    DesativarSetas();
+                                    return; 
                             }
-
                         }
                         else
                         {
-                            setas_XM.SetActive(false);
-                            setas_Xm.SetActive(false);
-                            setas_ZM.SetActive(false);
-                            setas_Zm.SetActive(false);
+                           DesativarSetas();
                         }
                     
 
@@ -91,4 +87,12 @@ public class GridMoviment : MonoBehaviour
     }
 
 
+
+    void DesativarSetas()
+    {
+        setas_XM.SetActive(false);
+        setas_Xm.SetActive(false);
+        setas_ZM.SetActive(false);
+        setas_Zm.SetActive(false);
+    }
 }
