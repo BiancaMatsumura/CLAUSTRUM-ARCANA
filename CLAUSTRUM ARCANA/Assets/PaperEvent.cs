@@ -17,7 +17,7 @@ public class PaperEvent : MonoBehaviour
         }
         else
         {
-            // se não haver nada em cima do desenho fazer algo;
+            Debug.Log("ntemnda");
         }
   }
   
