@@ -9,10 +9,10 @@ FBXHeaderExtension:  {
 		Year: 2024
 		Month: 10
 		Day: 15
-		Hour: 18
-		Minute: 58
-		Second: 0
-		Millisecond: 619
+		Hour: 19
+		Minute: 0
+		Second: 33
+		Millisecond: 118
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.3.5"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -28,19 +28,19 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\export\Claustrum Arcana Assets\Hatch_LOW.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\export\Claustrum Arcana Assets\Hatch_LOW.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\export\Claustrum Arcana Assets\Hatch_Fixed.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\export\Claustrum Arcana Assets\Hatch_Fixed.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2025"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "15/10/2024 17:58:00.615"
-			P: "Original|FileName", "KString", "", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\export\Claustrum Arcana Assets\Hatch_LOW.fbx"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "15/10/2024 18:00:33.118"
+			P: "Original|FileName", "KString", "", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\export\Claustrum Arcana Assets\Hatch_Fixed.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2025"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "15/10/2024 17:58:00.615"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "15/10/2024 18:00:33.118"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\pedro\OneDrive\Documentos\3ds Max 2025\scenes\Claustrum_Arcana\Hatch.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2832477982352, "", "Scene" {
+	Document: 2831559339728, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -226,7 +226,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2829048993456, "Geometry::", "Mesh" {
+	Geometry: 2829048964656, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.317647058823529,0.647058823529412,0.376470588235294
 		}
@@ -460,7 +460,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2831562312912, "Model::Hatch_LOW", "Mesh" {
+	Model: 2830212199360, "Model::Hatch_LOW", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -477,13 +477,13 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	AnimationStack: 2831567460896, "AnimStack::Take 001", "" {
+	AnimationStack: 2831437174080, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",153953860000
 			P: "ReferenceStop", "KTime", "Time", "",153953860000
 		}
 	}
-	AnimationLayer: 2832475767408, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 2831561985408, "AnimLayer::BaseLayer", "" {
 	}
 }
 
@@ -493,13 +493,13 @@ Objects:  {
 Connections:  {
 	
 	;Model::Hatch_LOW, Model::RootNode
-	C: "OO",2831562312912,0
+	C: "OO",2830212199360,0
 	
 	;AnimLayer::BaseLayer, AnimStack::Take 001
-	C: "OO",2832475767408,2831567460896
+	C: "OO",2831561985408,2831437174080
 	
 	;Geometry::, Model::Hatch_LOW
-	C: "OO",2829048993456,2831562312912
+	C: "OO",2829048964656,2830212199360
 }
 ;Takes section
 ;----------------------------------------------------

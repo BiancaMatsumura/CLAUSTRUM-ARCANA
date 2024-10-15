@@ -6,76 +6,46 @@ using System.Linq;
 
 public class PasswordLockPatternSetup : MonoBehaviour
 {
-    private Canvas canvas;
-    private GameObject passwordPanel;
-    public GameObject cubePrefab; // Prefab do cubo a ser instanciado
-    public List<Image> points = new List<Image>();
+    public Canvas canvas;  // Agora o Canvas será referenciado diretamente no Inspector
+    public GameObject passwordPanel;  // Referenciado diretamente no Inspector
+    public List<Image> points = new List<Image>();  // Adicione os pontos manualmente no Inspector
     public List<int> selectedPoints = new List<int>();
     private List<GameObject> instantiatedCubes = new List<GameObject>();
 
+    public GameObject cubePrefab; // Prefab do cubo a ser instanciado
+
+    // Referência ao objeto que será rotacionado
+    public GameObject objectToRotate;
+
+    // Variáveis para controle da rotação gradual
+    private bool shouldRotate = false;
+    private Quaternion targetRotation;
+    private float rotationSpeed = 100f;  // Velocidade de rotação
+
     private void Start()
     {
-        CreateCanvas();
-        CreatePasswordPanel();
-        CreatePoints();
-
-    }
-
-    private void CreateCanvas()
-    {
-        canvas = new GameObject("Canvas").AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.gameObject.AddComponent<CanvasScaler>();
-        canvas.gameObject.AddComponent<GraphicRaycaster>();
-    }
-
-    private void CreatePasswordPanel()
-    {
-        passwordPanel = new GameObject("PasswordPanel");
-        passwordPanel.transform.SetParent(canvas.transform);
-        RectTransform panelRect = passwordPanel.AddComponent<RectTransform>();
-        panelRect.sizeDelta = new Vector2(300, 300);
-        panelRect.anchoredPosition = Vector2.zero;
-
-        Image panelImage = passwordPanel.AddComponent<Image>();
-        panelImage.color = new Color(0, 0, 0, 0.5f); // Semi-transparente
-
         passwordPanel.AddComponent<PasswordDraw>().Initialize(points, this);
     }
 
-    private void CreatePoints()
+    private void Update()
     {
-        for (int i = 0; i < 9; i++)
+        // Verifica se deve rotacionar o objeto gradualmente
+        if (shouldRotate && objectToRotate != null)
         {
-            GameObject point = new GameObject($"Point{i}");
-            point.transform.SetParent(passwordPanel.transform);
-            Image pointImage = point.AddComponent<Image>();
-            pointImage.color = Color.white; // Cor do ponto
+            // Rotaciona gradualmente até o ângulo desejado
+            objectToRotate.transform.rotation = Quaternion.RotateTowards(
+                objectToRotate.transform.rotation, 
+                targetRotation, 
+                rotationSpeed * Time.deltaTime
+            );
 
-            RectTransform pointRect = point.GetComponent<RectTransform>();
-            pointRect.sizeDelta = new Vector2(40, 40); // Tamanho do ponto
-            pointRect.anchoredPosition = new Vector2((i % 3) * 100 - 100, (i / 3) * -100 + 100); // Posições em grade
-
-            points.Add(pointImage);
+            // Para de rotacionar quando atingir a rotação desejada
+            if (Quaternion.Angle(objectToRotate.transform.rotation, targetRotation) < 0.1f)
+            {
+                shouldRotate = false;
+                Debug.Log("Rotação concluída.");
+            }
         }
-    }
-
-    private void SetupCinemachine()
-    {
-        // Cria uma câmera do Cinemachine
-        var vcamGo = new GameObject("CinemachineVirtualCamera");
-        var virtualCamera = vcamGo.AddComponent<Cinemachine.CinemachineVirtualCamera>();
-        var camera = Camera.main;
-
-        // Define a câmera principal como a câmera do Cinemachine
-        if (camera != null)
-        {
-            virtualCamera.Follow = camera.transform;
-            virtualCamera.LookAt = passwordPanel.transform; // Foca no painel da senha
-        }
-
-        // Posiciona a câmera
-        camera.transform.position = new Vector3(0, 0, -10); // Ajuste a posição conforme necessário
     }
 
     public void InstantiateCube(Vector2 position)
@@ -97,7 +67,38 @@ public class PasswordLockPatternSetup : MonoBehaviour
     {
         // Defina a senha correta (exemplo: [0, 1, 2])
         List<int> correctPassword = new List<int> { 0, 1, 2 }; // Altere conforme necessário
-        return drawnPoints.Count == correctPassword.Count && !drawnPoints.Except(correctPassword).Any();
+        if (drawnPoints.Count == correctPassword.Count && !drawnPoints.Except(correctPassword).Any())
+        {
+            StartRotation(); // Inicia a rotação gradual
+            ClosePasswordPanel(); // Fecha o painel de senha
+            return true;
+        }
+        return false;
+    }
+
+    // Função para iniciar a rotação gradual
+    private void StartRotation()
+    {
+        if (objectToRotate != null)
+        {
+            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
+            shouldRotate = true;
+            Debug.Log("Iniciando rotação gradual.");
+        }
+        else
+        {
+            Debug.LogWarning("Nenhum objeto foi atribuído para rotacionar.");
+        }
+    }
+
+    // Função para fechar o painel de senha (pergaminho)
+    private void ClosePasswordPanel()
+    {
+        if (passwordPanel != null)
+        {
+            passwordPanel.SetActive(false); // Desativa o painel
+            Debug.Log("Painel de senha fechado.");
+        }
     }
 }
 
@@ -118,7 +119,6 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
         Vector2 localPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(GetComponent<RectTransform>(), eventData.position, eventData.pressEventCamera, out localPos);
 
-        // Cria um novo cubo se o movimento do mouse for significativo
         if ((localPos - lastPosition).magnitude > 30) // Ajuste o valor para controlar a sensibilidade
         {
             for (int i = 0; i < points.Count; i++)
@@ -129,8 +129,8 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
                     {
                         setup.selectedPoints.Add(i);
                     }
-                    setup.InstantiateCube(localPos); // Instancia um cubo na posição do toque
-                    lastPosition = localPos; // Atualiza a posição anterior
+                    setup.InstantiateCube(localPos);
+                    lastPosition = localPos;
                     break;
                 }
             }
@@ -148,9 +148,8 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
             Debug.Log("Senha incorreta!");
         }
 
-        // Limpa a seleção e os cubos
         setup.selectedPoints.Clear();
         setup.ClearCubes();
-        lastPosition = Vector2.zero; // Reseta a última posição
+        lastPosition = Vector2.zero;
     }
 }
