@@ -70,7 +70,6 @@ public class PasswordLockPatternSetup : MonoBehaviour
         if (drawnPoints.Count == correctPassword.Count && !drawnPoints.Except(correctPassword).Any())
         {
             StartRotation(); // Inicia a rotação gradual
-            ClosePasswordPanel(); // Fecha o painel de senha
             return true;
         }
         return false;
@@ -88,16 +87,6 @@ public class PasswordLockPatternSetup : MonoBehaviour
         else
         {
             Debug.LogWarning("Nenhum objeto foi atribuído para rotacionar.");
-        }
-    }
-
-    // Função para fechar o painel de senha (pergaminho)
-    private void ClosePasswordPanel()
-    {
-        if (passwordPanel != null)
-        {
-            passwordPanel.SetActive(false); // Desativa o painel
-            Debug.Log("Painel de senha fechado.");
         }
     }
 }
