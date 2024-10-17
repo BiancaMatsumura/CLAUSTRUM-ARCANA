@@ -1,10 +1,14 @@
 
 using UnityEngine;
+using DialogueEditor;
 
 public class PaperEvent : MonoBehaviour
 { 
     public float maxDistance = 100f;
-    
+
+    public NPCConversation myConvarsation;
+
+
     public void FixedUpdate()
     {
         Ray raio = new Ray(transform.position, Vector3.up);
@@ -17,9 +21,14 @@ public class PaperEvent : MonoBehaviour
         }
         else
         {
-            Debug.Log("ntemnda");
+            Debug.Log("entenda");
         }
-  }
-  
-  
+    }
+
+    public void StartDialogue()
+    {
+            ConversationManager.Instance.StartConversation(myConvarsation);
+        
+
+    }
 }

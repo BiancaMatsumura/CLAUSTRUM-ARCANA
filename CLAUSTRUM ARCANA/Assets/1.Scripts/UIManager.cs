@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public GameObject panel; // Arraste o painel que você deseja abrir aqui
     private bool isPanelOpen = false; // Estado inicial do painel
 
+    public GameObject pausePanel;
+    private bool isPaused = false;
     public void SetCurrentItem(InteractableItem item)
     {
         currentItem = item;
@@ -33,6 +35,26 @@ public class UIManager : MonoBehaviour
     {
         isPanelOpen = !isPanelOpen;
         panel.SetActive(isPanelOpen);
+    }
+
+    public void Pause()
+    {
+        if (!isPaused) 
+        {
+            isPaused = true; 
+            pausePanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void Resume()
+    {
+        if (isPaused) 
+        {
+            isPaused = false; 
+            pausePanel.SetActive(false); 
+            Time.timeScale = 1f;
+        }
     }
 
     public void Option() { }
