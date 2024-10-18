@@ -10,6 +10,7 @@ public class GridMoviment : MonoBehaviour
     public GameObject setas_Xm;
     private string SetaClicada;
     public static bool brendaperto;
+    public AudioSource sons;
     
     void FixedUpdate()
     {
@@ -58,19 +59,23 @@ public class GridMoviment : MonoBehaviour
                             {
                                 case "Z+":
                                     SphereTarget.position += Vector3.forward/2;
+                                    sons.Play();
                                     DesativarSetas();
                                     return;
                                 case "Z-":
                                     SphereTarget.position += Vector3.back/2;
+                                    sons.Play();
                                     DesativarSetas();
                                     return;
                                 case "X+":
                                     SphereTarget.position += Vector3.right/2;
+                                    sons.Play();
                                     DesativarSetas();
 
                                     return;
                                 case "X-":
                                     SphereTarget.position += Vector3.left/2;
+                                    sons.Play();
                                     DesativarSetas();
                                     return; 
                             }

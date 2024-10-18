@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     private InteractableItem currentItem;
     public LevelLoader levelLoader;
+    public AudioSource folhason;
 
     public GameObject panel; // Arraste o painel que você deseja abrir aqui
     private bool isPanelOpen = false; // Estado inicial do painel
@@ -35,6 +36,7 @@ public class UIManager : MonoBehaviour
     {
         isPanelOpen = !isPanelOpen;
         panel.SetActive(isPanelOpen);
+        folhason.Play();
     }
 
     public void Pause()
