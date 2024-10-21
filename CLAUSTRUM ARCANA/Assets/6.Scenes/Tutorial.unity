@@ -837,7 +837,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1975590649}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PaperEvent, Assembly-CSharp
         m_MethodName: StartDialogue
         m_Mode: 1
@@ -1165,7 +1165,6 @@ GameObject:
   - component: {fileID: 176885326}
   - component: {fileID: 176885325}
   - component: {fileID: 176885324}
-  - component: {fileID: 176885323}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Untagged
@@ -1191,20 +1190,6 @@ Transform:
   - {fileID: 1865087889}
   m_Father: {fileID: 1539238659}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 270}
---- !u!114 &176885323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176885321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2011e4dc6b32b4541b87d8e1fd27c1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 10
-  myConvarsation: {fileID: 0}
 --- !u!64 &176885324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6979,7 +6964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 10
-  myConvarsation: {fileID: 0}
+  myConvarsation: {fileID: 228341167}
 --- !u!64 &1300815764
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8233,7 +8218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496034193}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.290944, y: -0.008211118, z: 0.0024970965, w: 0.9567016}
+  m_LocalRotation: {x: 0.29094404, y: -0.008211086, z: 0.002497086, w: 0.9567016}
   m_LocalPosition: {x: -0.053343743, y: -0.6716614, z: -0.8433895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10354,7 +10339,6 @@ GameObject:
   - component: {fileID: 1975590652}
   - component: {fileID: 1975590651}
   - component: {fileID: 1975590650}
-  - component: {fileID: 1975590649}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -10380,20 +10364,6 @@ Transform:
   - {fileID: 851804916}
   m_Father: {fileID: 1539238659}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
---- !u!114 &1975590649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975590647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2011e4dc6b32b4541b87d8e1fd27c1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 10
-  myConvarsation: {fileID: 228341167}
 --- !u!64 &1975590650
 MeshCollider:
   m_ObjectHideFlags: 0

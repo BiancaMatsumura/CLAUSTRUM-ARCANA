@@ -20,7 +20,7 @@ public class PaperEvent : MonoBehaviour
         if (Physics.Raycast(raio, out hit, maxDistance))
         {
            //se o armario estiver em cima do desenho fazer algo
-           Debug.Log("mewo");
+          
         
         }
         else
