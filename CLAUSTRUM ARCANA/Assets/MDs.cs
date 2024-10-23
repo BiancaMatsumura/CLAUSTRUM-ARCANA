@@ -86,6 +86,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
             shouldRotate = true;
             Debug.Log("Iniciando rotação gradual.");
             portaabrir.Play();
+            
         }
         else
         {
@@ -134,6 +135,7 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
         if (setup.IsPasswordCorrect(setup.selectedPoints))
         {
             Debug.Log("Senha correta!");
+            gameObject.SetActive(true);
         }
         else
         {

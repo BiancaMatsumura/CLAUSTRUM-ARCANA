@@ -8,7 +8,8 @@ public class UIManager : MonoBehaviour
     public LevelLoader levelLoader;
     public AudioSource folhason;
 
-    public GameObject panel; // Arraste o painel que você deseja abrir aqui
+    public GameObject panel;
+    public GameObject panelRaw; // Arraste o painel que você deseja abrir aqui
     private bool isPanelOpen = false; // Estado inicial do painel
 
     public GameObject pausePanel;
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
     {
         isPanelOpen = !isPanelOpen;
         panel.SetActive(isPanelOpen);
+        panelRaw.SetActive(isPanelOpen);
         folhason.Play();
     }
 
