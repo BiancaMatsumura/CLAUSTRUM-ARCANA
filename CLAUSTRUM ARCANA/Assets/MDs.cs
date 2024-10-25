@@ -46,7 +46,8 @@ public class PasswordLockPatternSetup : MonoBehaviour
         if (tentativasRestantes <= 0)
         {
             uIManager.TogglePanel();
-            pergaminhoButton.interactable = false;  
+            pergaminhoButton.interactable = false;
+            dialogueController.Dialogue05();
         }
     }
     public void DecrementarTentativas()

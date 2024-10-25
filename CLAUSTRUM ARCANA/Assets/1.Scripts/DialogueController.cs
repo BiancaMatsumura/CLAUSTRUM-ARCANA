@@ -9,7 +9,7 @@ public class DialogueController : MonoBehaviour
     public NPCConversation dialogue02;
     public NPCConversation dialogue03;
     public NPCConversation dialogue04;
-
+    public NPCConversation dialogue05;
 
     void Start()
     {
@@ -31,6 +31,11 @@ public class DialogueController : MonoBehaviour
     public void Dialogue04()
     {
         ConversationManager.Instance.StartConversation(dialogue04);
+
+    }
+    public void Dialogue05()
+    {
+        ConversationManager.Instance.StartConversation(dialogue05);
 
     }
 }

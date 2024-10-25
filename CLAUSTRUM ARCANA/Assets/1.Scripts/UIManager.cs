@@ -61,6 +61,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void Restart(string sceneName)
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            pausePanel.SetActive(false);
+            Time.timeScale = 1f;
+            levelLoader.Transition(sceneName);
+
+        }
+    }
+
     public void Option() { }
     public void Credits() { }
     public void Quit() { Application.Quit(); }
