@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 
 public class PasswordLockPatternSetup : MonoBehaviour
 {
@@ -24,9 +25,34 @@ public class PasswordLockPatternSetup : MonoBehaviour
     
     public AudioSource portaabrir;
 
+    public DialogueController dialogueController;
+    public UIManager uIManager;
+
+    [SerializeField] private TextMeshProUGUI tentativasText;  
+    [SerializeField] private Button pergaminhoButton;  
+
+    private int tentativasRestantes = 3;
+
     private void Start()
-    {
+    {   
         passwordPanel.AddComponent<PasswordDraw>().Initialize(points, this);
+        PasswordDraw passwordDraw = passwordPanel.AddComponent<PasswordDraw>();
+        UpdateTentativasText();
+    }
+
+    public void UpdateTentativasText()
+    {
+        tentativasText.text = $"{tentativasRestantes}";  
+        if (tentativasRestantes <= 0)
+        {
+            uIManager.TogglePanel();
+            pergaminhoButton.interactable = false;  
+        }
+    }
+    public void DecrementarTentativas()
+    {
+        tentativasRestantes--;
+        UpdateTentativasText();
     }
 
     private void Update()
@@ -46,6 +72,9 @@ public class PasswordLockPatternSetup : MonoBehaviour
             {
                 shouldRotate = false;
                 Debug.Log("Rotação concluída.");
+                uIManager.TogglePanel();
+                dialogueController.Dialogue04();
+                
             }
         }
     }
@@ -101,6 +130,12 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
     private PasswordLockPatternSetup setup;
     private Vector2 lastPosition;
 
+    [SerializeField] public TextMeshPro tentativasText;
+
+    private int tentativasRestantes = 3;
+
+    [SerializeField] public Button pergaminhoButton;
+
     public void Initialize(List<Image> pointImages, PasswordLockPatternSetup passwordSetup)
     {
         points = pointImages;
@@ -140,10 +175,14 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
         else
         {
             Debug.Log("Senha incorreta!");
+            setup.DecrementarTentativas();
+            
         }
 
         setup.selectedPoints.Clear();
         setup.ClearCubes();
         lastPosition = Vector2.zero;
     }
+
+
 }

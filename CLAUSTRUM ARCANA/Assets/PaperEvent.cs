@@ -6,7 +6,7 @@ public class PaperEvent : MonoBehaviour
 { 
     public float maxDistance = 100f;
     private bool umavez = true;
-    public NPCConversation myConvarsation;
+    public DialogueController myConvarsation;
 
 
     public void FixedUpdate()
@@ -26,7 +26,7 @@ public class PaperEvent : MonoBehaviour
         else
         {
             
-           StartDialogue();
+            StartDialogue();
             umavez = false;
 
         }
@@ -34,8 +34,7 @@ public class PaperEvent : MonoBehaviour
 
     public void StartDialogue()
     {
-            ConversationManager.Instance.StartConversation(myConvarsation);
-        
+            myConvarsation.Dialogue02();
             umavez = true;
     }
 }
