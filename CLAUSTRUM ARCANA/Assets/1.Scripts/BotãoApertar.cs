@@ -1,30 +1,19 @@
-
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class TrocadorDeCamera : MonoBehaviour
 {
-    // troca as cameras
     public Cinemachine.CinemachineVirtualCamera cam1;
-
     public Cinemachine.CinemachineVirtualCamera cam2;
-
     public AudioSource audion;
-
     public Image fillImage;
     public Toggle button;
     public float fillDuration = 2f;
-
     public DialogueController dialogueController;
 
-    private bool isFilling = false;
-
-
-
-    //public GameObject Ui;
+    private Coroutine fillingCoroutine;
+    private float fillProgress = 1f; 
 
     public void SwitchCamera()
     {
@@ -32,47 +21,45 @@ public class TrocadorDeCamera : MonoBehaviour
         {
             cam2.Priority = 10;
             cam1.Priority = 0;
-            //Ui.SetActive(true);
             audion.Play();
-            StartFilling();
+            ToggleFilling();
         }
         else
         {
             cam1.Priority = 10;
             cam2.Priority = 0;
-            // Ui.SetActive(false);
             audion.Play();
-            dialogueController.Dialogue03();
-            isFilling = false;
-
+            ToggleFilling();
         }
     }
 
-    void StartFilling()
+    void ToggleFilling()
     {
-        if (!isFilling)
+        if (fillingCoroutine != null)
         {
-            isFilling = true;
-            StartCoroutine(FillOverTime(fillDuration));
+            StopCoroutine(fillingCoroutine);
+            fillingCoroutine = null; 
         }
-
-    }
-    private IEnumerator FillOverTime(float duration)
-    {
-        float time = 0f;
-        fillImage.fillAmount = 1f;
-
-        while (time < duration)
+        else
         {
-            time += Time.deltaTime;
-            fillImage.fillAmount = Mathf.Lerp(1f, 0f, time / duration);
+            fillingCoroutine = StartCoroutine(FillOverTime()); 
+        }
+    }
+
+    private IEnumerator FillOverTime()
+    {
+        while (fillProgress > 0f)
+        {
+            fillProgress -= Time.deltaTime / fillDuration;
+            fillImage.fillAmount = fillProgress;
             yield return null;
         }
 
+        fillProgress = 0f;
         fillImage.fillAmount = 0f;
-        isFilling = false;
         cam1.Priority = 10;
+        dialogueController.Dialogue03();
         button.interactable = false;
-
+        fillingCoroutine = null;
     }
 }

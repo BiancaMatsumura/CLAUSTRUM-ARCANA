@@ -11101,7 +11101,7 @@ MonoBehaviour:
   audion: {fileID: 163574255}
   fillImage: {fileID: 353974477}
   button: {fileID: 1868077870}
-  fillDuration: 10
+  fillDuration: 20
   dialogueController: {fileID: 854051219}
 --- !u!114 &1868077870
 MonoBehaviour:
