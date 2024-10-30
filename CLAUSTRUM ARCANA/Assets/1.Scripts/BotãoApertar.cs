@@ -43,6 +43,7 @@ public class TrocadorDeCamera : MonoBehaviour
             // Ui.SetActive(false);
             audion.Play();
             dialogueController.Dialogue03();
+            isFilling = false;
 
         }
     }
@@ -70,7 +71,7 @@ public class TrocadorDeCamera : MonoBehaviour
 
         fillImage.fillAmount = 0f;
         isFilling = false;
-        SwitchCamera();
+        cam1.Priority = 10;
         button.interactable = false;
 
     }
