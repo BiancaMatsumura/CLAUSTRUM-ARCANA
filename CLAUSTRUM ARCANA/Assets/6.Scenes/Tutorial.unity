@@ -1422,7 +1422,7 @@ GameObject:
   - component: {fileID: 208224360}
   - component: {fileID: 208224359}
   m_Layer: 5
-  m_Name: ll Anim
+  m_Name: fill Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9622,7 +9622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496034193}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.290944, y: -0.008211118, z: 0.0024970965, w: 0.9567016}
+  m_LocalRotation: {x: 0.29094404, y: -0.008211086, z: 0.002497086, w: 0.9567016}
   m_LocalPosition: {x: -0.053343743, y: -0.6716614, z: -0.8433895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10098,7 +10098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1544588699
 RectTransform:
   m_ObjectHideFlags: 0
