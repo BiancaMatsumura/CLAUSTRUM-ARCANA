@@ -13,7 +13,7 @@ public class DesenhoScript : MonoBehaviour
     {
         texture = new Texture2D(50, 50, TextureFormat.ARGB32, false);
         texture.filterMode = FilterMode.Bilinear;
-        texture.alphaIsTransparency = true;
+        //texture.alphaIsTransparency = true;
 
         img.texture = texture;
 

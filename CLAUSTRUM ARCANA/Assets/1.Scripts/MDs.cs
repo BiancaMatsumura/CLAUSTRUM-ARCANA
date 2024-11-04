@@ -133,7 +133,7 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
 
     [SerializeField] public TextMeshPro tentativasText;
 
-    private int tentativasRestantes = 3;
+    //private int tentativasRestantes = 3;
 
     [SerializeField] public Button pergaminhoButton;
 
