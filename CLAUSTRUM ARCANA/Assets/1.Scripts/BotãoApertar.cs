@@ -15,6 +15,7 @@ public class TrocadorDeCamera : MonoBehaviour
     private Coroutine fillingCoroutine;
     private float fillProgress = 1f; 
 
+
     public void SwitchCamera()
     {
         if (cam1.Priority > cam2.Priority)
