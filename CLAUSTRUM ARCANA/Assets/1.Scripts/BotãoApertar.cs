@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class TrocadorDeCamera : MonoBehaviour
 {
@@ -15,7 +17,13 @@ public class TrocadorDeCamera : MonoBehaviour
     private Coroutine fillingCoroutine;
     private float fillProgress = 1f; 
 
+    private Scene cenaAtiva;
 
+    void Start()
+    {
+        cenaAtiva = SceneManager.GetActiveScene();
+
+    }
     public void SwitchCamera()
     {
         if (cam1.Priority > cam2.Priority)
@@ -36,15 +44,21 @@ public class TrocadorDeCamera : MonoBehaviour
 
     void ToggleFilling()
     {
-        if (fillingCoroutine != null)
+        if (cenaAtiva.name != "Tutorial" )
         {
-            StopCoroutine(fillingCoroutine);
-            fillingCoroutine = null; 
+            if (fillingCoroutine != null)
+            {
+                StopCoroutine(fillingCoroutine);
+                fillingCoroutine = null; 
+            }
+            else
+            {
+                fillingCoroutine = StartCoroutine(FillOverTime()); 
+            }
+
+
         }
-        else
-        {
-            fillingCoroutine = StartCoroutine(FillOverTime()); 
-        }
+
     }
 
     private IEnumerator FillOverTime()
