@@ -5,37 +5,46 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
-    public NPCConversation dialogue01;
-    public NPCConversation dialogue02;
-    public NPCConversation dialogue03;
-    public NPCConversation dialogue04;
-    public NPCConversation dialogue05;
+    public List<NPCConversation> dialogues; 
+    public List<NPCConversation> PtDialogues;
+    public static bool tradução = false;
 
     void Start()
     {
-        ConversationManager.Instance.StartConversation(dialogue01);
-    }
+        if(!tradução)
+        {
+            if (dialogues != null && dialogues.Count > 0)
+            {
+                ConversationManager.Instance.StartConversation(dialogues[0]); 
+            }
+        }
+        else
+        {
+            if(PtDialogues != null && PtDialogues.Count > 0)
+            {
+                ConversationManager.Instance.StartConversation(PtDialogues[0]);
+            }
+        }
 
-    public void Dialogue02()
-    {
-        ConversationManager.Instance.StartConversation(dialogue02);
-
-    }
-
-    public void Dialogue03()
-    {
-        ConversationManager.Instance.StartConversation(dialogue03);
-
-    }
-
-    public void Dialogue04()
-    {
-        ConversationManager.Instance.StartConversation(dialogue04);
 
     }
-    public void Dialogue05()
+
+    public void StartDialogue(int index)
     {
-        ConversationManager.Instance.StartConversation(dialogue05);
+        if(!tradução)
+        {
+            if (dialogues != null && index >= 0 && index < dialogues.Count)
+            {
+                ConversationManager.Instance.StartConversation(dialogues[index]);
+            }
+        }
+        else
+        {
+            if (PtDialogues != null && index >= 0 && index < PtDialogues.Count)
+            {
+                ConversationManager.Instance.StartConversation(PtDialogues[index]);
+            }
+        }
 
     }
 }

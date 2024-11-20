@@ -43,7 +43,7 @@ public class PaperEvent : MonoBehaviour
 
     public void StartDialogue()
     {
-            myConvarsation.Dialogue02();
+            myConvarsation.StartDialogue(1);
             umavez = true;
     }
     

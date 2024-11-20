@@ -73,7 +73,7 @@ public class TrocadorDeCamera : MonoBehaviour
         fillProgress = 0f;
         fillImage.fillAmount = 0f;
         cam1.Priority = 10;
-        dialogueController.Dialogue03();
+        dialogueController.StartDialogue(2);
         button.interactable = false;
         fillingCoroutine = null;
     }

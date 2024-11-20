@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UIManager : MonoBehaviour
 {
     private InteractableItem currentItem;
@@ -14,6 +15,13 @@ public class UIManager : MonoBehaviour
 
     public GameObject pausePanel;
     private bool isPaused = false;
+
+    
+    public void Traducao()
+    {
+        DialogueController.tradução = true;
+    }
+
     public void SetCurrentItem(InteractableItem item)
     {
         currentItem = item;

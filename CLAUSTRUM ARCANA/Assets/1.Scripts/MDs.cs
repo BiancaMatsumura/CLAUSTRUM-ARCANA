@@ -47,7 +47,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
         {
             uIManager.TogglePanel();
             pergaminhoButton.interactable = false;
-            dialogueController.Dialogue05();
+            dialogueController.StartDialogue(4);
         }
     }
     public void DecrementarTentativas()
@@ -74,7 +74,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
                 shouldRotate = false;
                 Debug.Log("Rotação concluída.");
                 uIManager.TogglePanel();
-                dialogueController.Dialogue04();
+                dialogueController.StartDialogue(3);
                 
             }
         }
