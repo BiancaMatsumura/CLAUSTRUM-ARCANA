@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
-    public List<NPCConversation> dialogues; 
+    public List<NPCConversation> Endialogues; 
     public List<NPCConversation> PtDialogues;
-    public static bool tradução = false;
+    public static bool english = true;
+    public static bool portugues = false;
 
     void Start()
     {
-        if(!tradução)
+        if(!portugues && english)
         {
-            if (dialogues != null && dialogues.Count > 0)
+            if (Endialogues != null && Endialogues.Count > 0)
             {
-                ConversationManager.Instance.StartConversation(dialogues[0]); 
+                ConversationManager.Instance.StartConversation(Endialogues[0]); 
             }
         }
         else
@@ -31,11 +32,11 @@ public class DialogueController : MonoBehaviour
 
     public void StartDialogue(int index)
     {
-        if(!tradução)
+        if(!portugues && english)
         {
-            if (dialogues != null && index >= 0 && index < dialogues.Count)
+            if (Endialogues != null && index >= 0 && index < Endialogues.Count)
             {
-                ConversationManager.Instance.StartConversation(dialogues[index]);
+                ConversationManager.Instance.StartConversation(Endialogues[index]);
             }
         }
         else

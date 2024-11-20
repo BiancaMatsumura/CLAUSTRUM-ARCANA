@@ -16,10 +16,22 @@ public class UIManager : MonoBehaviour
     public GameObject pausePanel;
     private bool isPaused = false;
 
-    
-    public void Traducao()
-    {
-        DialogueController.tradução = true;
+        public void SetLanguage(int index)
+    { 
+
+        if (index == 0) 
+        {
+            DialogueController.english = true;
+            DialogueController.portugues = false;
+            
+            
+        }
+        else if (index == 1) 
+        {
+            DialogueController.portugues = true;
+            DialogueController.english = false;
+          
+        }
     }
 
     public void SetCurrentItem(InteractableItem item)
