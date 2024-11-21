@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementeMobile()
     {
-        direction = (Vector3.forward * joystick.Vertical) + (Vector3.right * joystick.Horizontal);
-        direction = direction.normalized;
+        direction = (Vector3.right * -joystick.Vertical) + (Vector3.back * -joystick.Horizontal);
         characterController.Move(direction * (playerSpeed * Time.deltaTime));
 
         if(direction != Vector3.zero)
