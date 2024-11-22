@@ -1,5 +1,5 @@
-
 using UnityEngine;
+
 public class GridMoviment : MonoBehaviour
 {
     public Transform SphereTarget;
@@ -9,89 +9,103 @@ public class GridMoviment : MonoBehaviour
     public GameObject setas_XM;
     public GameObject setas_Xm;
     private string SetaClicada;
-    public static bool brendaperto;
+    public bool brendaperto; // Variável agora é independente
     public AudioSource sons;
-    
+
+    private Precolisores precolisores; // Referência para o Precolisores associado
+
+    public float checkDistance = 0.55f; // Distância para verificar colisão (ajuste conforme necessário)
+
+    void Start()
+    {
+        // Procurar o componente Precolisores no mesmo GameObject ou em um filho.
+        precolisores = GetComponentInChildren<Precolisores>();
+        if (precolisores == null)
+        {
+            Debug.LogError("Precolisores não encontrado no objeto ou em seus filhos.");
+        }
+    }
+
     void FixedUpdate()
     {
         Vector3 dir = SphereTarget.position - transform.position;
         transform.position += dir * speed * Time.deltaTime;
     }
+
     void Update()
-    {       
-        if(!brendaperto)
-        return;
+    {
+        if (!brendaperto)
+            return;
 
         if (Input.touchCount > 0)
-             {
+        {
             Touch touch = Input.GetTouch(0);
 
-                if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
 
-                     if (Physics.Raycast(ray, out hit))
-                {   
-                    
-                            SetaClicada = hit.collider.name;
-                    // se o objeto colidir com o um objeto movivel, ele vai pegar o gameobject setas que esta nele mesmo destivado e liga-lo
-                    
-                        if (hit.collider != null && hit.collider.CompareTag("ObjetoMovivel"))
+                if (Physics.Raycast(ray, out hit))
+                {
+                    SetaClicada = hit.collider.name;
+
+                    if (hit.collider != null && hit.collider.CompareTag("ObjetoMovivel"))
+                    {
+                        // Usa as variáveis de Precolisores específicas da instância
+                        if (precolisores != null)
                         {
-            
-                            if(Precolisores.MovimentXM == true){
+                            if (precolisores.MovimentXM)
                                 setas_XM.SetActive(true);
-                            }
-                             if(Precolisores.MovimentXm == true){
+                            if (precolisores.MovimentXm)
                                 setas_Xm.SetActive(true);
-                            }
-                             if(Precolisores.MovimentZM == true){
+                            if (precolisores.MovimentZM)
                                 setas_ZM.SetActive(true);
-                            }
-                             if(Precolisores.MovimentZm == true){
+                            if (precolisores.MovimentZm)
                                 setas_Zm.SetActive(true);
-                            }
-                         
-                            
-                           
-                            switch(SetaClicada)
-                            {
-                                case "Z+":
-                                    SphereTarget.position += Vector3.forward/2;
-                                    sons.Play();
-                                    DesativarSetas();
-                                    return;
-                                case "Z-":
-                                    SphereTarget.position += Vector3.back/2;
-                                    sons.Play();
-                                    DesativarSetas();
-                                    return;
-                                case "X+":
-                                    SphereTarget.position += Vector3.right/2;
-                                    sons.Play();
-                                    DesativarSetas();
-
-                                    return;
-                                case "X-":
-                                    SphereTarget.position += Vector3.left/2;
-                                    sons.Play();
-                                    DesativarSetas();
-                                    return; 
-                            }
                         }
-                        else
+
+                        // Movimenta o alvo com base na seta clicada
+                        switch (SetaClicada)
                         {
-                           DesativarSetas();
+                            case "Z+":
+                                TryMove(Vector3.forward / 2);
+                                return;
+                            case "Z-":
+                                TryMove(Vector3.back / 2);
+                                return;
+                            case "X+":
+                                TryMove(Vector3.right / 2);
+                                return;
+                            case "X-":
+                                TryMove(Vector3.left / 2);
+                                return;
                         }
-                    
-
+                    }
+                    else
+                    {
+                        DesativarSetas();
+                    }
                 }
             }
         }
     }
 
+    void TryMove(Vector3 direction)
+    {
+        // Verifica se há colisores na direção antes de mover
+        if (!Physics.Raycast(transform.position, direction, checkDistance))
+        {
+            SphereTarget.position += direction;
+            sons.Play();
+        }
+        else
+        {
+            Debug.Log("Movimento bloqueado por um objeto na direção " + direction);
+        }
 
+        DesativarSetas();
+    }
 
     void DesativarSetas()
     {
