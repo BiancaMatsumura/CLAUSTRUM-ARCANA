@@ -9,6 +9,8 @@ public class CreditsController : MonoBehaviour
 
     public GameObject botoesUI;
     public GameObject creditsPanel;
+    public GameObject luz;
+    public GameObject logo;
 
     private bool camMenu = true;
     private bool camCredits = false;
@@ -37,6 +39,8 @@ public class CreditsController : MonoBehaviour
         if (!camMenu)
         {
             creditsPanel.SetActive(true);
+            luz.SetActive(true);
+            logo.SetActive(true);
             
         }
         else if (!camCredits)
@@ -63,6 +67,9 @@ public class CreditsController : MonoBehaviour
             cam1.Priority = 10;
             cam2.Priority = 0;
             creditsPanel.SetActive(false);
+            luz.SetActive(false);
+            logo.SetActive(false);
+
             
         }
     }
