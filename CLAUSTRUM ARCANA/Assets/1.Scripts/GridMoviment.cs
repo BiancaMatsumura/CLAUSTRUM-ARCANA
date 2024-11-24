@@ -13,8 +13,9 @@ public class GridMoviment : MonoBehaviour
     public AudioSource sons;
 
     private Precolisores precolisores; // Referência para o Precolisores associado
-
     public float checkDistance = 0.55f; // Distância para verificar colisão (ajuste conforme necessário)
+
+    private Color originalColor; // Para restaurar a cor original da seta
 
     void Start()
     {
@@ -24,6 +25,10 @@ public class GridMoviment : MonoBehaviour
         {
             Debug.LogError("Precolisores não encontrado no objeto ou em seus filhos.");
         }
+
+        // Armazenar a cor original de qualquer seta (assume que todas compartilham o mesmo material inicial)
+        if (setas_XM != null)
+            originalColor = setas_XM.GetComponent<Renderer>().material.color;
     }
 
     void FixedUpdate()
@@ -52,7 +57,6 @@ public class GridMoviment : MonoBehaviour
 
                     if (hit.collider != null && hit.collider.CompareTag("ObjetoMovivel"))
                     {
-                        // Usa as variáveis de Precolisores específicas da instância
                         if (precolisores != null)
                         {
                             if (precolisores.MovimentXM)
@@ -69,17 +73,17 @@ public class GridMoviment : MonoBehaviour
                         switch (SetaClicada)
                         {
                             case "Z+":
-                                TryMove(Vector3.forward / 2);
-                                return;
+                                if (!TryMove(Vector3.forward / 2, setas_ZM)) return;
+                                break;
                             case "Z-":
-                                TryMove(Vector3.back / 2);
-                                return;
+                                if (!TryMove(Vector3.back / 2, setas_Zm)) return;
+                                break;
                             case "X+":
-                                TryMove(Vector3.right / 2);
-                                return;
+                                if (!TryMove(Vector3.right / 2, setas_XM)) return;
+                                break;
                             case "X-":
-                                TryMove(Vector3.left / 2);
-                                return;
+                                if (!TryMove(Vector3.left / 2, setas_Xm)) return;
+                                break;
                         }
                     }
                     else
@@ -91,20 +95,29 @@ public class GridMoviment : MonoBehaviour
         }
     }
 
-    void TryMove(Vector3 direction)
+    bool TryMove(Vector3 direction, GameObject seta)
     {
-        // Verifica se há colisores na direção antes de mover
-        if (!Physics.Raycast(transform.position, direction, checkDistance))
+        Vector3 startPosition = transform.position;
+
+        // Raycast para verificar a colisão com objetos sólidos
+        if (Physics.Raycast(startPosition, direction, out RaycastHit hitInfo, checkDistance))
         {
-            SphereTarget.position += direction;
-            sons.Play();
-        }
-        else
-        {
-            Debug.Log("Movimento bloqueado por um objeto na direção " + direction);
+            if (!hitInfo.collider.isTrigger)
+            {
+                Debug.Log("Movimento bloqueado por um objeto: " + hitInfo.collider.name);
+
+                // Acionar o efeito de piscar a seta
+                StartCoroutine(PiscarSeta(seta));
+                return false; // Bloqueia o movimento
+            }
         }
 
+        // Movimento permitido
+        SphereTarget.position += direction;
+        sons.Play();
+
         DesativarSetas();
+        return true;
     }
 
     void DesativarSetas()
@@ -113,5 +126,22 @@ public class GridMoviment : MonoBehaviour
         setas_Xm.SetActive(false);
         setas_ZM.SetActive(false);
         setas_Zm.SetActive(false);
+    }
+
+    System.Collections.IEnumerator PiscarSeta(GameObject seta)
+    {
+        if (seta == null) yield break;
+
+        Renderer renderer = seta.GetComponent<Renderer>();
+        if (renderer == null) yield break;
+
+        // Mudar para vermelho
+        renderer.material.color = Color.red;
+
+        // Aguarde um curto período
+        yield return new WaitForSeconds(0.3f);
+
+        // Restaurar a cor original
+        renderer.material.color = originalColor;
     }
 }
