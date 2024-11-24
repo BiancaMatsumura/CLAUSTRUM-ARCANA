@@ -31,13 +31,13 @@ public class GridMoviment : MonoBehaviour
             originalColor = setas_XM.GetComponent<Renderer>().material.color;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 dir = SphereTarget.position - transform.position;
         transform.position += dir * speed * Time.deltaTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!brendaperto)
             return;
@@ -59,13 +59,13 @@ public class GridMoviment : MonoBehaviour
                     {
                         if (precolisores != null)
                         {
-                            if (precolisores.MovimentXM)
+                            
                                 setas_XM.SetActive(true);
-                            if (precolisores.MovimentXm)
+                            
                                 setas_Xm.SetActive(true);
-                            if (precolisores.MovimentZM)
+                          
                                 setas_ZM.SetActive(true);
-                            if (precolisores.MovimentZm)
+
                                 setas_Zm.SetActive(true);
                         }
 
@@ -73,16 +73,16 @@ public class GridMoviment : MonoBehaviour
                         switch (SetaClicada)
                         {
                             case "Z+":
-                                if (!TryMove(Vector3.forward / 2, setas_ZM)) return;
+                                if (!TryMove(Vector3.forward / 2, setas_XM)) return;
                                 break;
                             case "Z-":
-                                if (!TryMove(Vector3.back / 2, setas_Zm)) return;
+                                if (!TryMove(Vector3.back / 2, setas_Xm)) return;
                                 break;
                             case "X+":
-                                if (!TryMove(Vector3.right / 2, setas_XM)) return;
+                                if (!TryMove(Vector3.right / 2, setas_ZM)) return;
                                 break;
                             case "X-":
-                                if (!TryMove(Vector3.left / 2, setas_Xm)) return;
+                                if (!TryMove(Vector3.left / 2, setas_Zm)) return;
                                 break;
                         }
                     }
