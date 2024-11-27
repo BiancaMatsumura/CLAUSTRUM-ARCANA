@@ -1,47 +1,56 @@
+
 using UnityEngine;
 
 public class GridMoviment : MonoBehaviour
 {
-    public Transform SphereTarget;
-    public float speed = 0.01f;
+   
+    [Header ("Setas")]
     public GameObject setas_ZM;
     public GameObject setas_Zm;
     public GameObject setas_XM;
     public GameObject setas_Xm;
+    [Header ("AnimacaoSetas")]
+    public Animation animXM;
+    public Animation animXm;
+    public Animation animZM;
+    public Animation animZm;
+    [Header ("Outros")]
+    public float speed = 0.10f;
     private string SetaClicada;
     public bool brendaperto; // Variável agora é independente
     public AudioSource sons;
-
-    private Precolisores precolisores; // Referência para o Precolisores associado
+    public Transform Raycastgameobject;
+    public GameObject SphereTarget; //gameobject do alvo do movel
+    private GameObject instaciaprefab;
     public float checkDistance = 0.55f; // Distância para verificar colisão (ajuste conforme necessário)
 
-    private Color originalColor; // Para restaurar a cor original da seta
-
-    void Start()
-    {
-        // Procurar o componente Precolisores no mesmo GameObject ou em um filho.
-        precolisores = GetComponentInChildren<Precolisores>();
-        if (precolisores == null)
-        {
-            Debug.LogError("Precolisores não encontrado no objeto ou em seus filhos.");
-        }
-
-        // Armazenar a cor original de qualquer seta (assume que todas compartilham o mesmo material inicial)
-        if (setas_XM != null)
-            originalColor = setas_XM.GetComponent<Renderer>().material.color;
-    }
-
-    void Update()
-    {
-        Vector3 dir = SphereTarget.position - transform.position;
-        transform.position += dir * speed * Time.deltaTime;
-    }
 
     void FixedUpdate()
-    {
-        if (!brendaperto)
-            return;
+    {   
+        if(instaciaprefab != null){
+        Vector3 dir = instaciaprefab.transform.position - transform.position;
+        transform.position += dir * speed * Time.deltaTime;
+    }
+    }
 
+    void OnTriggerStay(Collider other)
+    {   
+        Debug.Log("colidiu");
+        if(other.name == "Brenda")
+        {
+            brendaperto = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.name == "Brenda")
+        {
+            brendaperto = false;
+            DesativarSetas();
+        }
+    }
+    void Update()
+    {
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -54,12 +63,15 @@ public class GridMoviment : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     SetaClicada = hit.collider.name;
-
+                    Debug.Log($"{SetaClicada}");
                     if (hit.collider != null && hit.collider.CompareTag("ObjetoMovivel"))
                     {
-                        if (precolisores != null)
-                        {
-                            
+                        if (!brendaperto)
+                        return;
+
+                                Instanciador();
+                        if(instaciaprefab.name == gameObject.name) 
+                        {  
                                 setas_XM.SetActive(true);
                             
                                 setas_Xm.SetActive(true);
@@ -73,17 +85,21 @@ public class GridMoviment : MonoBehaviour
                         switch (SetaClicada)
                         {
                             case "Z+":
-                                if (!TryMove(Vector3.forward / 2, setas_XM)) return;
-                                break;
+                                if (!TryMove(Vector3.forward / 2, setas_XM))
+                                return;
+                            break;
                             case "Z-":
-                                if (!TryMove(Vector3.back / 2, setas_Xm)) return;
-                                break;
+                                if (!TryMove(Vector3.back / 2, setas_Xm))
+                                return;
+                            break;
                             case "X+":
-                                if (!TryMove(Vector3.right / 2, setas_ZM)) return;
-                                break;
+                                if (!TryMove(Vector3.right / 2, setas_ZM))
+                                return;
+                            break;
                             case "X-":
-                                if (!TryMove(Vector3.left / 2, setas_Zm)) return;
-                                break;
+                                if (!TryMove(Vector3.left / 2, setas_Zm))
+                                return;
+                            break;
                         }
                     }
                     else
@@ -97,7 +113,11 @@ public class GridMoviment : MonoBehaviour
 
     bool TryMove(Vector3 direction, GameObject seta)
     {
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = Raycastgameobject.position;
+        animXM.clip.legacy = true;
+        animXm.clip.legacy = true;
+        animZm.clip.legacy = true;
+        animZM.clip.legacy = true;
 
         // Raycast para verificar a colisão com objetos sólidos
         if (Physics.Raycast(startPosition, direction, out RaycastHit hitInfo, checkDistance))
@@ -105,18 +125,35 @@ public class GridMoviment : MonoBehaviour
             if (!hitInfo.collider.isTrigger)
             {
                 Debug.Log("Movimento bloqueado por um objeto: " + hitInfo.collider.name);
-
-                // Acionar o efeito de piscar a seta
-                StartCoroutine(PiscarSeta(seta));
+                 switch (seta.name)
+                        {
+                            case "Z+":
+                                
+                                animXM.Play();
+                            break;
+                            case "Z-":
+                                animXm.Play();
+                            break;
+                            case "X+":
+                                animZM.Play();
+                            break;
+                            case "X-":
+                                animZm.Play();
+                            break;
+                        }
+                DestroyPrefab(0f);
                 return false; // Bloqueia o movimento
+                
+            
             }
         }
 
         // Movimento permitido
-        SphereTarget.position += direction;
+        instaciaprefab.transform.position += direction;
         sons.Play();
-
+        
         DesativarSetas();
+        DestroyPrefab(3f);
         return true;
     }
 
@@ -128,20 +165,20 @@ public class GridMoviment : MonoBehaviour
         setas_Zm.SetActive(false);
     }
 
-    System.Collections.IEnumerator PiscarSeta(GameObject seta)
+  void DestroyPrefab(float segundos)
     {
-        if (seta == null) yield break;
-
-        Renderer renderer = seta.GetComponent<Renderer>();
-        if (renderer == null) yield break;
-
-        // Mudar para vermelho
-        renderer.material.color = Color.red;
-
-        // Aguarde um curto período
-        yield return new WaitForSeconds(0.3f);
-
-        // Restaurar a cor original
-        renderer.material.color = originalColor;
+        if (instaciaprefab != null)
+        {
+            // Destroi a instância do prefab
+            Destroy(instaciaprefab, segundos);
+            Debug.Log("Prefab destruído!");
+        }
+    }
+    void Instanciador()
+    {
+        instaciaprefab = Instantiate(SphereTarget, transform.position, transform.rotation);
+        instaciaprefab.name = this.gameObject.name ;
     }
 }
+
+
