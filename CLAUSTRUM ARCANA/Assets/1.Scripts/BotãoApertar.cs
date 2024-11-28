@@ -29,13 +29,11 @@ public class TrocadorDeCamera : MonoBehaviour
         if (cam1.Priority > cam2.Priority)
         {
             cam2.Priority = 10;
-            cam1.Priority = 0;
             audion.Play();
             ToggleFilling();
         }
         else
         {
-            cam1.Priority = 10;
             cam2.Priority = 0;
             audion.Play();
             ToggleFilling();

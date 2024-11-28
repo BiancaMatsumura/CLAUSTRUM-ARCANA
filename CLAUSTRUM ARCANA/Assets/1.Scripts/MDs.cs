@@ -12,6 +12,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
     public List<Image> points = new List<Image>();  // Adicione os pontos manualmente no Inspector
     public List<int> selectedPoints = new List<int>();
     private List<GameObject> instantiatedCubes = new List<GameObject>();
+    public List<int> correctPassword = new List<int> { 0, 1, 2 };
 
     public GameObject cubePrefab; // Prefab do cubo a ser instanciado
 
@@ -97,9 +98,8 @@ public class PasswordLockPatternSetup : MonoBehaviour
 
     public bool IsPasswordCorrect(List<int> drawnPoints)
     {
-        // Defina a senha correta (exemplo: [0, 1, 2])
-        List<int> correctPassword = new List<int> { 0, 1, 2 }; // Altere conforme necessário
-        if (drawnPoints.Count == correctPassword.Count && !drawnPoints.Except(correctPassword).Any())
+            List<int> senhacerta =   correctPassword;
+        if (drawnPoints.Count == senhacerta.Count && !drawnPoints.Except(senhacerta).Any())
         {
             StartRotation(); // Inicia a rotação gradual
             return true;
