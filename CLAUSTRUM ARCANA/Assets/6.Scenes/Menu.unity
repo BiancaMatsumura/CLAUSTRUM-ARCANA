@@ -3651,7 +3651,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Unity
 
-    Blender
+    3Ds Max / Blender
+
+    Substance Painter
 
     Figma
 
@@ -4671,7 +4673,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Bianca Dellevedove Matsumura - \nPrograma\xE7\xE3o e UI Design \nGustavo
-    Lucas Vieira Pimentel -  \nRoteiro e Design de Som\nPedro Henrique de Freitas
+    Lucas Vieira Pimentel -  \nGame Design e Design de Som\nPedro Henrique de Freitas
     Souza -  \nArte e Texturiza\xE7\xE3o\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
@@ -6839,6 +6841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785196105037094503, guid: 7308abd97a6b2944ba1b0095aa596136,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7969690336546890171, guid: 7308abd97a6b2944ba1b0095aa596136,
         type: 3}
