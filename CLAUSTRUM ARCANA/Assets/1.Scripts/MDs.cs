@@ -19,26 +19,23 @@ public class PasswordLockPatternSetup : MonoBehaviour
     // Referência ao objeto que será rotacionado
     public GameObject objectToRotate;
 
-    // Variável para definir a angulação do giro no Inspector
-    public Vector3 rotationAngle = new Vector3(90f, 0f, 0f);
-
     // Variáveis para controle da rotação gradual
     private bool shouldRotate = false;
     private Quaternion targetRotation;
     private float rotationSpeed = 100f;  // Velocidade de rotação
-
+    
     public AudioSource portaabrir;
 
     public DialogueController dialogueController;
     public UIManager uIManager;
 
-    [SerializeField] private TextMeshProUGUI tentativasText;
-    [SerializeField] private Button pergaminhoButton;
+    [SerializeField] private TextMeshProUGUI tentativasText;  
+    [SerializeField] private Button pergaminhoButton;  
 
     private int tentativasRestantes = 3;
 
     private void Start()
-    {
+    {   
         passwordPanel.AddComponent<PasswordDraw>().Initialize(points, this);
         PasswordDraw passwordDraw = passwordPanel.AddComponent<PasswordDraw>();
         UpdateTentativasText();
@@ -46,7 +43,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
 
     public void UpdateTentativasText()
     {
-        tentativasText.text = $"{tentativasRestantes}";
+        tentativasText.text = $"{tentativasRestantes}";  
         if (tentativasRestantes <= 0)
         {
             uIManager.TogglePanel();
@@ -54,7 +51,6 @@ public class PasswordLockPatternSetup : MonoBehaviour
             dialogueController.StartDialogue(4);
         }
     }
-
     public void DecrementarTentativas()
     {
         tentativasRestantes--;
@@ -68,8 +64,8 @@ public class PasswordLockPatternSetup : MonoBehaviour
         {
             // Rotaciona gradualmente até o ângulo desejado
             objectToRotate.transform.rotation = Quaternion.RotateTowards(
-                objectToRotate.transform.rotation,
-                targetRotation,
+                objectToRotate.transform.rotation, 
+                targetRotation, 
                 rotationSpeed * Time.deltaTime
             );
 
@@ -80,6 +76,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
                 Debug.Log("Rotação concluída.");
                 uIManager.TogglePanel();
                 dialogueController.StartDialogue(3);
+                
             }
         }
     }
@@ -101,7 +98,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
 
     public bool IsPasswordCorrect(List<int> drawnPoints)
     {
-        List<int> senhacerta = correctPassword;
+            List<int> senhacerta =   correctPassword;
         if (drawnPoints.Count == senhacerta.Count && !drawnPoints.Except(senhacerta).Any())
         {
             StartRotation(); // Inicia a rotação gradual
@@ -115,11 +112,11 @@ public class PasswordLockPatternSetup : MonoBehaviour
     {
         if (objectToRotate != null)
         {
-            // Usa o valor configurado no Inspector para definir a rotação desejada
-            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(rotationAngle);
+            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
             shouldRotate = true;
-            Debug.Log($"Iniciando rotação gradual para {rotationAngle}.");
+            Debug.Log("Iniciando rotação gradual.");
             portaabrir.Play();
+            
         }
         else
         {
@@ -135,6 +132,9 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
     private Vector2 lastPosition;
 
     [SerializeField] public TextMeshPro tentativasText;
+
+    //private int tentativasRestantes = 3;
+
     [SerializeField] public Button pergaminhoButton;
 
     public void Initialize(List<Image> pointImages, PasswordLockPatternSetup passwordSetup)
@@ -177,10 +177,13 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             Debug.Log("Senha incorreta!");
             setup.DecrementarTentativas();
+            
         }
 
         setup.selectedPoints.Clear();
         setup.ClearCubes();
         lastPosition = Vector2.zero;
     }
+
+
 }
