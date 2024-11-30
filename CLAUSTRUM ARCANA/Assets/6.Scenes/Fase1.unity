@@ -521,6 +521,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 3190096028199267354, guid: 3a7ffdf6854cb9440b84fc00c2decfc1,
     type: 3}
   objectToRotate: {fileID: 1815870612}
+  rotationAngle: {x: 0, y: 0, z: -150}
   portaabrir: {fileID: 0}
   dialogueController: {fileID: 852752239}
   uIManager: {fileID: 852752238}
@@ -13241,7 +13242,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7862391691550088030, guid: 0f2e6fad177d2444caffd32ef324ea51,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815870616}
   m_SourcePrefab: {fileID: 100100000, guid: 0f2e6fad177d2444caffd32ef324ea51, type: 3}
 --- !u!1001 &1756304375
 PrefabInstance:
@@ -13643,6 +13648,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1746897868}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1815870616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815870612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9483469, y: 0.21772435, z: 1.2875766}
+  m_Center: {x: 0.4723797, y: 0.002047502, z: 0.11909446}
 --- !u!1001 &1818046848
 PrefabInstance:
   m_ObjectHideFlags: 0
