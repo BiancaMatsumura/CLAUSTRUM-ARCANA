@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
 
     private Animator animator;
+
+    public TrocadorDeCamera vision;
     void Start()
     {
         joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
@@ -54,6 +56,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.Translate(direction * (playerSpeed * Time.deltaTime),Space.World);
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {
+    
+        if (other.CompareTag("Item"))
+        {
+            vision.fillImage.fillAmount = 1;
+            Destroy(other.gameObject);
+        }
     }
 
 }
