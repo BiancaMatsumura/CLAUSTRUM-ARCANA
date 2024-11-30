@@ -10,18 +10,14 @@ public class PasswordLockPatternSetup : MonoBehaviour
     public Canvas canvas;  // Agora o Canvas será referenciado diretamente no Inspector
     public GameObject passwordPanel;  // Referenciado diretamente no Inspector
     public List<Image> points = new List<Image>();  // Adicione os pontos manualmente no Inspector
-    [HideInInspector]
     public List<int> selectedPoints = new List<int>();
     private List<GameObject> instantiatedCubes = new List<GameObject>();
-
-    //public List<int> correctPassword = new List<int> { 0, 1, 2 };
+    public List<int> correctPassword = new List<int> { 0, 1, 2 };
 
     public GameObject cubePrefab; // Prefab do cubo a ser instanciado
 
     // Referência ao objeto que será rotacionado
-    public List<GameObject> objectsToRotate; // Lista de objetos que serão rotacionados
-    private int currentObjectIndex = 0; // Índice para saber qual objeto rotacionar
-
+    public GameObject objectToRotate;
 
     // Variáveis para controle da rotação gradual
     private bool shouldRotate = false;
@@ -36,17 +32,13 @@ public class PasswordLockPatternSetup : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tentativasText;  
     [SerializeField] private Button pergaminhoButton;  
 
-    public Passwords passwords;
-
-    private int tentativasRestantes = 5;
+    private int tentativasRestantes = 3;
 
     private void Start()
     {   
-
         passwordPanel.AddComponent<PasswordDraw>().Initialize(points, this);
         PasswordDraw passwordDraw = passwordPanel.AddComponent<PasswordDraw>();
         UpdateTentativasText();
-        selectedPoints.Clear();
     }
 
     public void UpdateTentativasText()
@@ -66,19 +58,14 @@ public class PasswordLockPatternSetup : MonoBehaviour
     }
 
     private void Update()
-{
-    // Verifica se deve rotacionar o objeto gradualmente
-    if (shouldRotate)
     {
-        int currentPasswordIndex = passwords.GetCurrentPasswordIndex();  // Índice da senha atual
-        if (objectsToRotate.Count > currentPasswordIndex)
+        // Verifica se deve rotacionar o objeto gradualmente
+        if (shouldRotate && objectToRotate != null)
         {
-            GameObject objectToRotate = objectsToRotate[currentPasswordIndex];
-
             // Rotaciona gradualmente até o ângulo desejado
             objectToRotate.transform.rotation = Quaternion.RotateTowards(
-                objectToRotate.transform.rotation,
-                targetRotation,
+                objectToRotate.transform.rotation, 
+                targetRotation, 
                 rotationSpeed * Time.deltaTime
             );
 
@@ -86,28 +73,13 @@ public class PasswordLockPatternSetup : MonoBehaviour
             if (Quaternion.Angle(objectToRotate.transform.rotation, targetRotation) < 0.1f)
             {
                 shouldRotate = false;
-                Debug.Log("Rotação concluída do objeto " + currentPasswordIndex);
-
-                // Avança para a próxima senha
-                passwords.AdvanceToNextPassword();
-
-                // Verifica se há mais senhas a serem resolvidas
-                if (passwords.HasMorePasswords())
-                {
-                    Debug.Log("Proxima senha.");
-                }
-                else
-                {
-                    Debug.Log("Todas as senhas foram resolvidas!");
-                    uIManager.TogglePanel();  // Exemplo de ação após terminar todas as rotações
-                    dialogueController.StartDialogue(3);  // Exemplo de diálogo
-                }
+                Debug.Log("Rotação concluída.");
+                uIManager.TogglePanel();
+                dialogueController.StartDialogue(3);
+                
             }
         }
     }
-}
-
-
 
     public void InstantiateCube(Vector2 position)
     {
@@ -124,56 +96,33 @@ public class PasswordLockPatternSetup : MonoBehaviour
         instantiatedCubes.Clear();
     }
 
-
     public bool IsPasswordCorrect(List<int> drawnPoints)
     {
-    List<int> currentPassword = passwords.GetCurrentPassword();
-
-    if (currentPassword != null &&
-        drawnPoints.Count == currentPassword.Count &&
-        !drawnPoints.Except(currentPassword).Any())
-    {
-        Debug.Log("Senha correta!");
-        selectedPoints.Clear();
-        StartRotation(); // Inicia a rotação do objeto correspondente à senha atual
-
-        return true;
+            List<int> senhacerta =   correctPassword;
+        if (drawnPoints.Count == senhacerta.Count && !drawnPoints.Except(senhacerta).Any())
+        {
+            StartRotation(); // Inicia a rotação gradual
+            return true;
+        }
+        return false;
     }
-
-    Debug.Log("Senha incorreta!");
-    return false;
-    }
-
-
 
     // Função para iniciar a rotação gradual
     private void StartRotation()
     {
-    // A senha corrente determina qual objeto rotacionar
-    int currentPasswordIndex = passwords.GetCurrentPasswordIndex();  // Método que retorna o índice da senha atual
-    if (objectsToRotate.Count > currentPasswordIndex)
-    {
-        GameObject objectToRotate = objectsToRotate[currentPasswordIndex];
-
         if (objectToRotate != null)
         {
             targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
             shouldRotate = true;
-            Debug.Log("Iniciando rotação do objeto " + currentPasswordIndex);
-            portaabrir.Play();  // Som de porta abrindo
+            Debug.Log("Iniciando rotação gradual.");
+            portaabrir.Play();
+            
         }
         else
         {
             Debug.LogWarning("Nenhum objeto foi atribuído para rotacionar.");
         }
     }
-    else
-    {
-        Debug.LogWarning("Não há objetos suficientes na lista para rotacionar.");
-    }
-    }
-
-
 }
 
 public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
@@ -221,12 +170,12 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (setup.IsPasswordCorrect(setup.selectedPoints))
         {
-            Debug.Log("Senha correta! OnEndDrag");
+            Debug.Log("Senha correta!");
             gameObject.SetActive(true);
         }
         else
         {
-            Debug.Log("Senha incorreta! OnEndDrag");
+            Debug.Log("Senha incorreta!");
             setup.DecrementarTentativas();
             
         }

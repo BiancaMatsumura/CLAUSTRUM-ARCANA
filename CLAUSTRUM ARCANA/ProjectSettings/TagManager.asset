@@ -8,7 +8,6 @@ TagManager:
   - MovePoint
   - ObjetoMovivel
   - Next
-  - Item
   layers:
   - Default
   - TransparentFX

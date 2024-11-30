@@ -75,6 +75,4 @@ public class TrocadorDeCamera : MonoBehaviour
         button.interactable = false;
         fillingCoroutine = null;
     }
-
-
 }
