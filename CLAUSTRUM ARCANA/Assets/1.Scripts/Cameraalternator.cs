@@ -6,15 +6,12 @@ public class cameraALternator : MonoBehaviour
     public GameObject camera2;
     public GameObject camera3;
     public GameObject camera4;
-    int medidor;
+    public int medidor;
     
     void OnTriggerEnter()
     {
         medidor++;
-    }
-    void FixedUpdate()
-    {
-        switch(medidor)
+         switch(medidor)
         {
             case 1:
             camera2.SetActive(true);
@@ -27,4 +24,5 @@ public class cameraALternator : MonoBehaviour
             break;
         }
     }
+   
 }
