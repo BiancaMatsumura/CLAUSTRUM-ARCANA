@@ -157,7 +157,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
 
         if (objectToRotate != null)
         {
-            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(0f, 0f, -90f);
+            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(0f, 0f, -120f);
             shouldRotate = true;
             Debug.Log("Iniciando rotação do objeto " + currentPasswordIndex);
             portaabrir.Play();  // Som de porta abrindo
