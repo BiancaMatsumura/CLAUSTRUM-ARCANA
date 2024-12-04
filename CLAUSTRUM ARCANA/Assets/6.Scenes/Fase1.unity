@@ -8728,6 +8728,7 @@ MonoBehaviour:
   - {fileID: 1879240633}
   - {fileID: 1807323148}
   cameraIndex: 2
+  playerMovement: {fileID: 1048340112}
 --- !u!65 &955174648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9496,6 +9497,7 @@ MonoBehaviour:
   vision: {fileID: 1413265628}
   direcao01: 0
   direcao02: 0
+  cameras: []
 --- !u!95 &1048340113
 Animator:
   serializedVersion: 5
@@ -12499,6 +12501,7 @@ MonoBehaviour:
   - {fileID: 1879240633}
   - {fileID: 1807323148}
   cameraIndex: 1
+  playerMovement: {fileID: 1048340112}
 --- !u!65 &1437733728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14206,6 +14209,7 @@ MonoBehaviour:
   - {fileID: 1879240633}
   - {fileID: 1807323148}
   cameraIndex: 0
+  playerMovement: {fileID: 1048340112}
 --- !u!65 &1640467884
 BoxCollider:
   m_ObjectHideFlags: 0
