@@ -1,28 +1,48 @@
-
+using System.Collections;
 using UnityEngine;
 
 public class cameraALternator : MonoBehaviour
-{   
-    public GameObject camera2;
-    public GameObject camera3;
-    public GameObject camera4;
-    public int medidor;
-    
-    void OnTriggerEnter()
+{
+    public GameObject[] cameras;  
+    public int cameraIndex;       
+    public PlayerMovement playerMovement;  
+    void OnTriggerEnter(Collider other)
     {
-        medidor++;
-         switch(medidor)
+        
+        if (other.CompareTag("Player"))
         {
-            case 1:
-            camera2.SetActive(true);
-            break;
-            case 2:
-            camera3.SetActive(true);
-            break;
-            case 3:
-            camera4.SetActive(true);
-            break;
+            
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = false;
+                playerMovement.StopWalkingAnimation();
+            }
+
+            // Desativa todas as câmeras
+            foreach (var cam in cameras)
+            {
+                cam.SetActive(false);
+            }
+
+            // Ativa a câmera associada a este trigger
+            if (cameraIndex >= 0 && cameraIndex < cameras.Length)
+            {
+                cameras[cameraIndex].SetActive(true);
+            }
+
+            
+            StartCoroutine(EnablePlayerMovementAfterDelay(1f));  
         }
     }
-   
+
+
+    private IEnumerator EnablePlayerMovementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = true;
+            playerMovement.ResumeWalkingAnimation();   
+        }
+    }
 }

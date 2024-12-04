@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08720186, g: 0.09181272, b: 0.07360715, a: 1}
+  m_IndirectSpecularColor: {r: 0.04894151, g: 0.061190307, b: 0.059614837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8723,10 +8723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba9afeb7019e18438d3a41badccb502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera2: {fileID: 2054640717}
-  camera3: {fileID: 1879240633}
-  camera4: {fileID: 1807323148}
-  medidor: 2
+  cameras:
+  - {fileID: 2054640717}
+  - {fileID: 1879240633}
+  - {fileID: 1807323148}
+  cameraIndex: 2
 --- !u!65 &955174648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9324,6 +9325,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: axisOptions
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9488,6 +9494,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 1
   vision: {fileID: 1413265628}
+  direcao01: 0
+  direcao02: 0
 --- !u!95 &1048340113
 Animator:
   serializedVersion: 5
@@ -12486,10 +12494,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba9afeb7019e18438d3a41badccb502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera2: {fileID: 2054640717}
-  camera3: {fileID: 1879240633}
-  camera4: {fileID: 1807323148}
-  medidor: 1
+  cameras:
+  - {fileID: 2054640717}
+  - {fileID: 1879240633}
+  - {fileID: 1807323148}
+  cameraIndex: 1
 --- !u!65 &1437733728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14192,10 +14201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba9afeb7019e18438d3a41badccb502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera2: {fileID: 2054640717}
-  camera3: {fileID: 1879240633}
-  camera4: {fileID: 1807323148}
-  medidor: 0
+  cameras:
+  - {fileID: 2054640717}
+  - {fileID: 1879240633}
+  - {fileID: 1807323148}
+  cameraIndex: 0
 --- !u!65 &1640467884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15565,7 +15575,7 @@ GameObject:
   - component: {fileID: 1807323149}
   - component: {fileID: 1807323150}
   m_Layer: 0
-  m_Name: Cam3 (2)
+  m_Name: Cam4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16275,7 +16285,7 @@ GameObject:
   - component: {fileID: 1879240634}
   - component: {fileID: 1879240635}
   m_Layer: 0
-  m_Name: Cam3 (1)
+  m_Name: Cam3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18267,7 +18277,7 @@ GameObject:
   - component: {fileID: 2054640718}
   - component: {fileID: 2054640719}
   m_Layer: 0
-  m_Name: Cam3
+  m_Name: Cam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
