@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
 
-    private Animator animator;
+    public Animator animator;
 
     public TrocadorDeCamera vision;
 
@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     {
         joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>(); 
         cenaAtiva = SceneManager.GetActiveScene();
         cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
 
