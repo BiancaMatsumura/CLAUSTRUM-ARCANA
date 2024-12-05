@@ -26,8 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isChangingCamera = false;  
 
-    public GameObject[] cameras;  
-    private int currentCameraIndex = 0;  
+    //public GameObject[] cameras;  
+    //private int currentCameraIndex = 0;  
+    public Animator stairsAnim;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
 
         
-        cameras[currentCameraIndex].SetActive(true);  
+        //cameras[currentCameraIndex].SetActive(true);  
     }
 
     void Update()
@@ -52,14 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
         CheckCameraAndUpdateDirection();
 
-        if (cinemachineBrain != null)
-        {
-            CinemachineVirtualCamera activeCam = cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
-            if (activeCam != null)
-            {
-                Debug.Log("Câmera ativa: " + activeCam.name);
-            }
-        }
     }
 
     void MovementeMobile()
@@ -149,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (activeCam.name == "Cam4") 
                 {
+                    stairsAnim.SetBool("descerEscada",true);
                     direcao01 = false;
                     direcao02 = true;
                 }

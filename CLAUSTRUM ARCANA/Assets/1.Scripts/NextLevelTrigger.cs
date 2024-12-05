@@ -1,16 +1,33 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
+    private Scene cenaAtiva;
+
+    void Start()
+    {
+        cenaAtiva = SceneManager.GetActiveScene();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica se o player colidiu com o cubo que possui a tag "Next"
-        if (other.CompareTag("Player") && gameObject.CompareTag("Next"))
+        if(cenaAtiva.name == "Tutorial")
         {
-            Debug.Log("Encostou");
-            // Carrega a próxima cena chamada "Fase1"
-            SceneManager.LoadScene("Fase1");
+            if (other.CompareTag("Player") && gameObject.CompareTag("Next"))
+            {
+                SceneManager.LoadScene("Fase1");
+            }
         }
+        else if (cenaAtiva.name == "Fase1")
+        {
+            if (other.CompareTag("Player") && gameObject.CompareTag("Next"))
+            {
+                SceneManager.LoadScene("Vitoria");
+            }
+        }
+        
+
     }
 }

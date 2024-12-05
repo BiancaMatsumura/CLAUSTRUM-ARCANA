@@ -26,7 +26,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
     // Variáveis para controle da rotação gradual
     private bool shouldRotate = false;
     private Quaternion targetRotation;
-    private float rotationSpeed = 100f;  // Velocidade de rotação
+    private float rotationSpeed = 200f;  // Velocidade de rotação
     
     public AudioSource portaabrir;
 
@@ -157,7 +157,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
 
         if (objectToRotate != null)
         {
-            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(0f, 0f, -120f);
+            targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(0f, 0f, -100f);
             shouldRotate = true;
             Debug.Log("Iniciando rotação do objeto " + currentPasswordIndex);
             portaabrir.Play();  // Som de porta abrindo
