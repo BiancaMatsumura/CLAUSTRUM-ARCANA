@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor.PackageManager;
 
 public class PasswordLockPatternSetup : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
     private float rotationSpeed = 200f;  // Velocidade de rotação
     
     public AudioSource portaabrir;
+    public AudioSource erroraudio;
 
     public DialogueController dialogueController;
     public UIManager uIManager;
@@ -141,7 +143,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
 
         return true;
     }
-
+    erroraudio.Play();
     Debug.Log("Senha incorreta!");
     return false;
     }
@@ -232,6 +234,7 @@ public class PasswordDraw : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             Debug.Log("Senha incorreta! OnEndDrag");
             setup.DecrementarTentativas();
+            
             
         }
 

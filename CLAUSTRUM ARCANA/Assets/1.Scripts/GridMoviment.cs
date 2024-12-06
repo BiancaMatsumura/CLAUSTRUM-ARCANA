@@ -30,6 +30,7 @@ public class GridMoviment : MonoBehaviour
         if(instaciaprefab != null){
         Vector3 dir = instaciaprefab.transform.position - transform.position;
         transform.position += dir * speed * Time.deltaTime;
+         DestroyPrefab(5f);
     }
     }
 
