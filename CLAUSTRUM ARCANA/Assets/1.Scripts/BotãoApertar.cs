@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 
 public class TrocadorDeCamera : MonoBehaviour
 {
-    public Cinemachine.CinemachineVirtualCamera cam1;
     public Cinemachine.CinemachineVirtualCamera cam2;
     public AudioSource audion;
     public Image fillImage;
@@ -15,7 +14,7 @@ public class TrocadorDeCamera : MonoBehaviour
     public DialogueController dialogueController;
 
     private Coroutine fillingCoroutine;
-    private float fillProgress = 1f; 
+    public float fillProgress = 1f; 
 
     private Scene cenaAtiva;
 
@@ -26,7 +25,7 @@ public class TrocadorDeCamera : MonoBehaviour
     }
     public void SwitchCamera()
     {
-        if (cam1.Priority > cam2.Priority)
+        if (cam2.Priority == 0)
         {
             cam2.Priority = 10;
             audion.Play();
@@ -70,7 +69,7 @@ public class TrocadorDeCamera : MonoBehaviour
 
         fillProgress = 0f;
         fillImage.fillAmount = 0f;
-        cam1.Priority = 10;
+        cam2.Priority = 0;
         dialogueController.StartDialogue(2);
         button.interactable = false;
         fillingCoroutine = null;

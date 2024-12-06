@@ -87,6 +87,8 @@ public class PasswordLockPatternSetup : MonoBehaviour
             {
                 shouldRotate = false;
                 Debug.Log("Rotação concluída do objeto " + currentPasswordIndex);
+                uIManager.TogglePanel();
+                dialogueController.StartDialogue(3); 
 
                 // Avança para a próxima senha
                 passwords.AdvanceToNextPassword();
@@ -100,7 +102,7 @@ public class PasswordLockPatternSetup : MonoBehaviour
                 {
                     Debug.Log("Todas as senhas foram resolvidas!");
                     uIManager.TogglePanel();  // Exemplo de ação após terminar todas as rotações
-                    dialogueController.StartDialogue(3);  // Exemplo de diálogo
+                     
                 }
             }
         }
@@ -160,7 +162,9 @@ public class PasswordLockPatternSetup : MonoBehaviour
             targetRotation = objectToRotate.transform.rotation * Quaternion.Euler(0f, 0f, -100f);
             shouldRotate = true;
             Debug.Log("Iniciando rotação do objeto " + currentPasswordIndex);
-            portaabrir.Play();  // Som de porta abrindo
+            portaabrir.Play();
+             
+            
         }
         else
         {
