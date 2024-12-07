@@ -3,9 +3,20 @@ using UnityEngine;
 
 public class cameraALternator : MonoBehaviour
 {
-    public GameObject[] cameras;  
+    public GameObject[] cameras; 
+    private int[] dialogos; 
     public int cameraIndex;       
     public PlayerMovement playerMovement;  
+
+    public DialogueController dialogueController;
+
+    private void Start()
+    {
+        dialogos = new int[3];
+        dialogos[0] = 5;
+        dialogos[1] = 6;
+        dialogos[2] = 7;
+    }
     void OnTriggerEnter(Collider other)
     {
         
@@ -28,6 +39,11 @@ public class cameraALternator : MonoBehaviour
             if (cameraIndex >= 0 && cameraIndex < cameras.Length)
             {
                 cameras[cameraIndex].SetActive(true);
+            }
+            // Inicia o diálogo associado ao índice da câmera
+            if (dialogueController != null && cameraIndex >= 0 && cameraIndex < dialogos.Length)
+            {
+                dialogueController.StartDialogue(dialogos[cameraIndex]);
             }
 
             

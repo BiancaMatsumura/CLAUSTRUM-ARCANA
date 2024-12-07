@@ -300,6 +300,7 @@ Transform:
   - {fileID: 1874432372}
   - {fileID: 655072268}
   - {fileID: 723058060}
+  - {fileID: 2058528377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &63188518
@@ -588,7 +589,7 @@ MonoBehaviour:
   NodeID: 2
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!114 &92312373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,9 +606,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 1
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 6aa9f29fef7f37d409151cc3719c3b4a, type: 3}
 --- !u!114 &92312374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,7 +627,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: a21c84678aff6f84685169c7404e14f7, type: 3}
 --- !u!114 &92312375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,9 +1232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 3
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":280,\"yPos\":146},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":277,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Meow!
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":281.5,\"yPos\":146},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Meow!
     You did it! Now, let\u2019s continue our escape.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -1868,7 +1869,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 6aa9f29fef7f37d409151cc3719c3b4a, type: 3}
 --- !u!1 &228341166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,15 +1900,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 9
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":54.5,\"yPos\":296},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-111.5,\"yPos\":-12},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continue\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":202.5,\"yPos\":-11},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Jump\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":54.5,\"yPos\":-115},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Meow!
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":278.5,\"yPos\":433},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":112.5,\"yPos\":125},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continue\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":426.5,\"yPos\":126},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Jump\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Meow!
     Now we\u2019re talking! With that out of the way, I\u2019ll show you how to really
     escape.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":60.5,\"yPos\":60},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Look,
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":284.5,\"yPos\":197},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Look,
     a hidden clue! But it\u2019s not enough... there\u2019s more to uncover.\",\"parentUIDs\":[7],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":52.5,\"yPos\":172},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"You
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":276.5,\"yPos\":309},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"You
     possess a special power: Arcane Vision. Press that button to see beyond the walls
     of this cell, into the others around you. Search for more hidden symbols.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -1924,19 +1925,7 @@ MonoBehaviour:
     type: 2}
   Event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 194104996}
-        m_TargetAssemblyTypeName: PaperEvent, Assembly-CSharp
-        m_MethodName: EndCutscene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &228341168
 Transform:
   m_ObjectHideFlags: 0
@@ -2918,7 +2907,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!1 &402085513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,7 +3611,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 6aa9f29fef7f37d409151cc3719c3b4a, type: 3}
 --- !u!4 &433426181
 Transform:
   m_ObjectHideFlags: 0
@@ -3699,10 +3688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 2
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":58.5,\"yPos\":307},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Reiniciar\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":53.5,\"yPos\":174},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":408.5,\"yPos\":155},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Reiniciar\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":403.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
     usou todas as suas tentativas. Sinto muito, mas voc\xEA n\xE3o \xE9 uma bruxa
     de verdade.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -3814,7 +3803,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 13ad7256d827211479f031615efe4821, type: 3}
 --- !u!1 &454290548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,16 +4212,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 9
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":97.5,\"yPos\":378},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-104.5,\"yPos\":66},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continuar\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":285.5,\"yPos\":73},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pular\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":97.5,\"yPos\":-34},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Miau!
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":278.5,\"yPos\":434},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":76.5,\"yPos\":122},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continuar\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":466.5,\"yPos\":129},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pular\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Miau!
     Agora sim estamos falando s\xE9rio! Com isso fora do caminho, vou te mostrar
     como realmente escapar.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":103.5,\"yPos\":141},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Olhe,
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":288.5,\"yPos\":199},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Olhe,
     uma pista escondida! Mas n\xE3o \xE9 suficiente... h\xE1 mais a ser descoberto.\",\"parentUIDs\":[7],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":95.5,\"yPos\":253},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":276.5,\"yPos\":309},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
     possui um poder especial: Vis\xE3o Arcana. Pressione aquele bot\xE3o para ver
     al\xE9m das paredes desta cela, nas outras ao seu redor. Procure por mais s\xEDmbolos
     escondidos.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -4249,19 +4238,7 @@ MonoBehaviour:
     type: 2}
   Event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 194104996}
-        m_TargetAssemblyTypeName: PaperEvent, Assembly-CSharp
-        m_MethodName: EndCutscene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &550353262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,9 +4395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 2
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":282,"yPos":155},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Restart","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":277,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":283.5,"yPos":155},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Restart","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":278.5,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
     used all your attempts. I''m sorry, but you are not truly a witch.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Magic
-    Cat","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
+    Cat","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5}]}'
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -4480,15 +4457,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 11
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":103.5,\"yPos\":469},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":243.5,\"yPos\":142},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continue\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-30.5,\"yPos\":140},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Jump\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":98.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Meow!
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":283.5,\"yPos\":469},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":423.5,\"yPos\":142},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continue\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":149.5,\"yPos\":140},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Jump\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Meow!
     It looks like you\u2019re in quite the predicament. Luckily, you\u2019re not
     alone. I can guide you, but you\u2019ll have to trust me.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":8.05,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":104.5,\"yPos\":220},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"See
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":8.05,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":284.5,\"yPos\":220},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"See
     that wardrobe? It\u2019s in my way. Be kind, push it aside for me. I promise
     I\u2019ll help you escape\",\"parentUIDs\":[6],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0.1,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":93,\"yPos\":348},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Get
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0.1,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":273,\"yPos\":348},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Get
     close to the closet and click on it, so arrows will appear to move it.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: 67c9faf9f81af7846b698a019696452b, type: 3}
@@ -5037,9 +5014,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 3
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":47,\"yPos\":275},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":44,\"yPos\":151},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Miau!
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":281.5,\"yPos\":146},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Miau!
     Voc\xEA conseguiu! Agora, vamos continuar nossa fuga.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -5099,10 +5076,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 2
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":51,\"yPos\":272},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":47,\"yPos\":161},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Agora,
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":282.5,\"yPos\":133},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Agora,
     use o pergaminho. Desenhe os s\xEDmbolos que voc\xEA viu. Mas cuidado, voc\xEA
     s\xF3 tem 3 tentativas! Cada vez que falhar, um pergaminho ser\xE1 consumido.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -5614,7 +5591,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!4 &780095602
 Transform:
   m_ObjectHideFlags: 0
@@ -12293,7 +12270,7 @@ MonoBehaviour:
   NodeID: 1
   TMPFont: {fileID: 0}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 6aa9f29fef7f37d409151cc3719c3b4a, type: 3}
 --- !u!4 &1076424037
 Transform:
   m_ObjectHideFlags: 0
@@ -12327,7 +12304,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: a21c84678aff6f84685169c7404e14f7, type: 3}
 --- !u!114 &1076424039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12346,7 +12323,7 @@ MonoBehaviour:
   NodeID: 2
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!114 &1076424040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13939,15 +13916,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 11
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":318,\"yPos\":469},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":428,\"yPos\":137},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continuar\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":194,\"yPos\":138},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pular\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":313,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Miau!
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":283.5,\"yPos\":469},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[2],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":393.5,\"yPos\":137},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Continuar\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":159.5,\"yPos\":138},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pular\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":278.5,\"yPos\":21},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Miau!
     Parece que voc\xEA est\xE1 em uma situa\xE7\xE3o complicada. Felizmente, voc\xEA
     n\xE3o est\xE1 sozinho. Posso te guiar, mas voc\xEA ter\xE1 que confiar em mim.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":8.05,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":319,\"yPos\":220},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Est\xE1
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":8.05,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":284.5,\"yPos\":220},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Est\xE1
     vendo aquele guarda-roupa? Ele est\xE1 no meu caminho. Seja gentil, empurre-o
     para o lado para mim. Prometo que vou te ajudar a escapar.\",\"parentUIDs\":[6],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0.1,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":307.5,\"yPos\":348},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Aproxime-se
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0.1,\"Volume\":0.5},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":273,\"yPos\":348},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Aproxime-se
     do guarda-roupa e clique nele, assim aparecer\xE3o setas para mov\xEA-lo.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Gato
-    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    M\xE1gico\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: 67c9faf9f81af7846b698a019696452b, type: 3}
@@ -15328,10 +15305,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 2
-  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":281,\"yPos\":133},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":277,\"yPos\":22},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Now,
+  json: "{\"Options\":[{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":282.5,\"yPos\":133},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"OK\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":277.5,\"yPos\":21},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Now,
     use the scroll. Draw the symbols you\u2019ve seen. But be careful, you only have
     3 attempts! Each time you fail, one scroll will be consumed.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Magic
-    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    Cat\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0.5}]}"
   saveVersion: 110
   DefaultName: Magic Cat
   DefaultSprite: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
@@ -16478,7 +16455,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 13ad7256d827211479f031615efe4821, type: 3}
 --- !u!1 &1868077867
 GameObject:
   m_ObjectHideFlags: 0
@@ -17410,7 +17387,7 @@ MonoBehaviour:
   NodeID: 1
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 6aa9f29fef7f37d409151cc3719c3b4a, type: 3}
 --- !u!4 &1968528030
 Transform:
   m_ObjectHideFlags: 0
@@ -17444,7 +17421,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!114 &1968528032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17463,7 +17440,7 @@ MonoBehaviour:
   NodeID: 2
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: 67c9faf9f81af7846b698a019696452b, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!114 &1968528033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18050,7 +18027,7 @@ MonoBehaviour:
   NodeID: 2
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: 67c9faf9f81af7846b698a019696452b, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!114 &2016378187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18069,7 +18046,7 @@ MonoBehaviour:
   NodeID: 1
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 6aa9f29fef7f37d409151cc3719c3b4a, type: 3}
 --- !u!114 &2016378188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18088,7 +18065,7 @@ MonoBehaviour:
   NodeID: 0
   TMPFont: {fileID: 11400000, guid: 71ecf6ed4b13f654b88faeaf10d9f192, type: 2}
   Icon: {fileID: 21300000, guid: cb1ac54215af3424e9dc515efce8ea88, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 20e7b51606515bb4d8cd217950ca5c22, type: 3}
 --- !u!1 &2019382262
 GameObject:
   m_ObjectHideFlags: 0
@@ -18371,6 +18348,135 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65993d3fe3ec5ff4e97df8fd749cc984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2058528376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058528377}
+  - component: {fileID: 2058528378}
+  m_Layer: 0
+  m_Name: TextBloop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058528377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058528376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 52480359}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2058528378
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058528376}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7142260808919075891, guid: 1cbdf94aa151f1048ba995de79c9aa99,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0a6181d04769c724c95769d6e8e9bedc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2079304948
 GameObject:
   m_ObjectHideFlags: 0
@@ -18422,9 +18528,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755062758274, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
+      propertyPath: Priority
+      value: 209
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900108755062758274, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
+        type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: aaa7e33fb860d3d469a9bfcbb45c919d, type: 3}
+      objectReference: {fileID: 8300000, guid: 0a6181d04769c724c95769d6e8e9bedc, type: 3}
+    - target: {fileID: 3900108755062758274, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7142260808919075891, guid: 1cbdf94aa151f1048ba995de79c9aa99,
+        type: 2}
     - target: {fileID: 3900108755062758285, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_Name
