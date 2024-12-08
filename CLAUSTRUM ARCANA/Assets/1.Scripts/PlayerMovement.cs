@@ -84,9 +84,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            vision.fillImage.fillAmount = 1;
-            vision.fillProgress = 1;
-            vision.button.interactable = true;
+            
+            vision.ResetVision();
             Destroy(other.gameObject);
         }
     }

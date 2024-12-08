@@ -13,10 +13,11 @@ public class TrocadorDeCamera : MonoBehaviour
     public float fillDuration = 2f;
     public DialogueController dialogueController;
 
-    private Coroutine fillingCoroutine;
+    public Coroutine fillingCoroutine;
     public float fillProgress = 1f; 
 
     private Scene cenaAtiva;
+    private bool acabou = false;
 
     void Start()
     {
@@ -37,6 +38,21 @@ public class TrocadorDeCamera : MonoBehaviour
             audion.Play();
             ToggleFilling();
         }
+    }
+
+    public void ResetVision() 
+    {
+        fillImage.fillAmount = 1;
+        fillProgress = 1;
+        button.interactable = true;
+        if (acabou)
+        {
+            ToggleFilling();
+            acabou = false;
+        }
+        
+
+
     }
 
     void ToggleFilling()
@@ -72,7 +88,8 @@ public class TrocadorDeCamera : MonoBehaviour
         cam2.Priority = 0;
         dialogueController.StartDialogue(2);
         button.interactable = false;
-        fillingCoroutine = null;
+        acabou = true;
+        
     }
 
 
